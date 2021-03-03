@@ -36,14 +36,16 @@ public class SwaggerConfig {
     controllers that get pulled in by default.
      */
     @Bean
-    public Docket api() {
+    public Docket apiV1() {
         return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("Version 1")
                 .select()
 //                .apis(RequestHandlerSelectors.any())
                 .apis(RequestHandlerSelectors.basePackage("com.tts.swaggerRestaurant"))
-                .paths(PathSelectors.any())
+//                .paths(PathSelectors.any())
+                .paths(PathSelectors.ant("v1/**"))
                 .build()
-                .apiInfo(buildApiInfo());
+                .apiInfo(buildApiInfoV1());
     }
 
     /*
@@ -57,12 +59,36 @@ public class SwaggerConfig {
     ApiInfo object is built in a separate method.
     Add this line in the above api() method: .apiInfo(buildApiInfo());
      */
-    private ApiInfo buildApiInfo() {
+    private ApiInfo buildApiInfoV1() {
         return new ApiInfoBuilder()
                 .title("Menu Items API")
                 .description("REST API for interacting with menu items")
                 .version("1.0.0")
-                .contact(new Contact("Developer: Renee's Inc", "google.com", "developer@website.com"))
+                .contact(new Contact("Developer: Renee's Inc", "renee.works", "sreneewatkins@renee.works"))
+                .license("Apache License Version 2.0")
+                .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0")
+                .build();
+    }
+
+    @Bean
+    public Docket apiV2() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("Version 2")
+                .select()
+//                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("com.tts.swaggerRestaurant"))
+//                .paths(PathSelectors.any())
+                .paths(PathSelectors.ant("v2/**"))
+                .build()
+                .apiInfo(buildApiInfoV2());
+    }
+
+    private ApiInfo buildApiInfoV2() {
+        return new ApiInfoBuilder()
+                .title("Menu Items API")
+                .description("REST API for interacting with menu items")
+                .version("2.0.0")
+                .contact(new Contact("Developer: Renee's Inc", "renee.works", "sreneewatkins@renee.works"))
                 .license("Apache License Version 2.0")
                 .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0")
                 .build();

@@ -20,7 +20,7 @@ public class ItemV2 {
     private String category;
 
     @ApiModelProperty(notes = "The ingredients used in the menu item")
-    private List<String> ingredients;
+    private List<IngredientV2> ingredients;
     /*
     changing the above list to type Ingredient will cause a "breaking change".
     To handle this, we need to create a new version of our API. Version 1
@@ -48,7 +48,7 @@ public class ItemV2 {
     public ItemV2() {}
 
     public ItemV2(String name, String description, String category,
-                  List<String> ingredients, double price,
+                  List<IngredientV2> ingredients, double price,
                   Date createdDate, Date updatedDate,
                   Boolean isVegetarian, Boolean isGlutenFree) {
         this.name = name;
@@ -87,11 +87,11 @@ public class ItemV2 {
         this.category = category;
     }
 
-    public List<String> getIngredients() {
+    public List<IngredientV2> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<String> ingredients) {
+    public void setIngredients(List<IngredientV2> ingredients) {
         this.ingredients = ingredients;
     }
 
