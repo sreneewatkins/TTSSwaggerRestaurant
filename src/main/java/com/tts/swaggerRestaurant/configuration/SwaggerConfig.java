@@ -43,7 +43,7 @@ public class SwaggerConfig {
 //                .apis(RequestHandlerSelectors.any())
                 .apis(RequestHandlerSelectors.basePackage("com.tts.swaggerRestaurant"))
 //                .paths(PathSelectors.any())
-                .paths(PathSelectors.ant("v1/**"))
+                .paths(PathSelectors.ant("/v1/**"))
                 .build()
                 .apiInfo(buildApiInfoV1());
     }
@@ -78,7 +78,7 @@ public class SwaggerConfig {
 //                .apis(RequestHandlerSelectors.any())
                 .apis(RequestHandlerSelectors.basePackage("com.tts.swaggerRestaurant"))
 //                .paths(PathSelectors.any())
-                .paths(PathSelectors.ant("v2/**"))
+                .paths(PathSelectors.ant("/v2/**"))
                 .build()
                 .apiInfo(buildApiInfoV2());
     }

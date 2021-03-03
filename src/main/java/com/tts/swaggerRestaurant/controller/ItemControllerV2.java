@@ -51,7 +51,7 @@ public class ItemControllerV2 {
             responseContainer = "List")
     @GetMapping("/item/all")
     public ResponseEntity<List<ItemV2>> getAllItems() {
-        return new ResponseEntity<>(new ArrayList<>(), HttpStatus.OK);
+        return new ResponseEntity<>(new ArrayList<ItemV2>(), HttpStatus.OK);
     }
 
 }//end ItemControllerV2 class
