@@ -1,6 +1,6 @@
 package com.tts.swaggerRestaurant.model;
 
-public class IngedientV2 {
+public class IngredientV2 {
 
 
 
